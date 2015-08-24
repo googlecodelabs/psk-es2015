@@ -70,7 +70,7 @@ gulp.task('jshint', function () {
 });
 
 // Transpile all ES2015 JS files to ES5.
-gulp.task('es2015toEs5', function () {
+gulp.task('js', function () {
   return gulp.src(['app/{elements,scripts}/**/*.{js,html}'])
     .pipe($.sourcemaps.init())
     .pipe($.if('*.html', $.crisper())) // Extract JS from .html files
@@ -214,10 +214,10 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
     }
   });
 
-  gulp.watch(['app/**/*.html'], ['es2015toEs5', reload]);
+  gulp.watch(['app/**/*.html'], ['js', reload]);
   gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
   gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-  gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint', 'es2015toEs5']);
+  gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint', 'js']);
   gulp.watch(['app/images/**/*'], reload);
 });
 
@@ -248,7 +248,7 @@ gulp.task('default', ['clean'], function (cb) {
   runSequence(
     ['copy', 'styles'],
     'elements',
-    ['jshint', 'es2015toEs5', 'images', 'fonts', 'html'],
+    ['jshint', 'js', 'images', 'fonts', 'html'],
     'vulcanize',
     cb);
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
