@@ -1,11 +1,11 @@
 ![](https://cloud.githubusercontent.com/assets/110953/7877439/6a69d03e-0590-11e5-9fac-c614246606de.png)
-# Build a Google Drive Client using Polymer Starter Kit and ES2015
+## Build a Google Drive Client using Polymer Starter Kit and ES2015
 
 > A step by step codelab showing how to build a Google Drive client using Polymer Starter Kit (PSK) and ES2015.
 
 This codelab is based on [Polymer Starter Kit v1.0.3](https://github.com/PolymerElements/polymer-starter-kit/releases/tag/v1.0.3).
 
-## Download and setup Polymer Starter Kit
+### Download and setup Polymer Starter Kit
 
 Polymer Starter Kit (PSK) offers a starting point for building your Polymer 1.0
 applications. It gives you an already setup empty web applications with a build
@@ -15,7 +15,7 @@ pipeline that includes useful common dependencies and best practices.
   Get the full version, not the 'light' version.
 - Run `npm install -g gulp bower && npm install && bower install` to install all dependencies.
 
-## Add ES2015 support to PSK
+### Add ES2015 support to PSK
 
 During this codelab we'll use ES2015 syntax such as classes and arrow functions.
 For ES2015 code to work in older browser we need to transpile it to ES5 code
