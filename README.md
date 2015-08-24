@@ -27,7 +27,7 @@ to ES5 transpile step in its build pipeline so we'll need to add this.
 
 ```javascript
 // Transpile all ES2015 JS files to ES5.
-gulp.task('es2015toEs5', function () {
+gulp.task('js', function () {
   return gulp.src(['app/{elements,scripts}/**/*.{js,html}'])
     .pipe($.sourcemaps.init())
     .pipe($.if('*.html', $.crisper())) // Extract JS from .html files
@@ -41,24 +41,28 @@ gulp.task('es2015toEs5', function () {
 This task will transpile all JS files and inline JS content and also generate sourcemaps.
 
 - Make sure this task is triggered by common build tasks:
-In the gulp `serve` task, make sure `es2015toEs5` is triggered on HTML and JS files changes:
+In the gulp `serve` task, make sure `js` is triggered on HTML and JS files changes:
+
 ```javascript
 gulp.task('serve', ['styles', 'elements', 'images'], function () {
 
   ...
 
-  gulp.watch(['app/**/*.html'], ['es2015toEs5', reload]);
+  gulp.watch(['app/**/*.html'], ['js', reload]);
   gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
   gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-  gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint', 'es2015toEs5']);
+  gulp.watch(['app/{scripts,elements}/**/*.js'], ['jshint', 'js']);
   gulp.watch(['app/images/**/*'], reload);
+});
 ```
-In the `default` task make sure `es2015toEs5` is triggered in parallel to `jshint`:
+
+In the `default` task make sure `js` is triggered in parallel to `jshint`:
+
 ```javascript
 gulp.task('default', ['clean'], function (cb) {
   ...
 
-    ['jshint', 'es2015toEs5', 'images', 'fonts', 'html'],
+    ['jshint', 'js', 'images', 'fonts', 'html'],
 
   ...
 
