@@ -9,29 +9,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <dom-module id="awesome-meme">
-  <style>
-    :host {
-      display: block;
-      background-image: url("/images/awesome.png");
-      width: 300px;
-      height: 300px;
-      position: relative;
-    }
-    .top, .bottom{
-      position: absolute;
-      font-size: 30px;
-      font-weight: bold;
-      width: 100%;
-      text-align: center;
-    }
-    .top {
-      top: 20px;
-    }
-    .bottom {
-      bottom: 20px;
-    }
-  </style>
   <template>
+    <style>
+      :host {
+        display: block;
+        background-image: url("/images/awesome.png");
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+      .top, .bottom{
+        position: absolute;
+        font-size: 30px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+      }
+      .top {
+        top: 20px;
+      }
+      .bottom {
+        bottom: 20px;
+      }
+    </style>
+
     <div class="top">{{top}}</div>
     <div class="bottom">{{bottom}}</div>
   </template>
