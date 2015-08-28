@@ -28,19 +28,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    (function() {
-      Polymer({
-        is: 'my-greeting',
-
-        properties: {
+    class MyGreeting {
+      get is() { return 'my-greeting'; }
+      get properties() {
+        return {
           greeting: {
             type: String,
             value: 'Welcome!',
             notify: true
           }
-        }
-      });
-    })();
+        };
+      }
+    }
+
+    Polymer(MyGreeting.prototype); // jshint ignore:line
   </script>
 
 </dom-module>
