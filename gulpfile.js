@@ -77,7 +77,7 @@ gulp.task('js', function () {
     .pipe($.if('*.js', $.babel()))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/'))
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 });
 
 // Optimize Images
