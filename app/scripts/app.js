@@ -15,18 +15,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   let app = document.querySelector('#app');
 
-  app.displayInstalledToast = () =>
-    document.querySelector('#caching-complete').show();
+  app.displayInstalledToast = () => document.querySelector('#caching-complete').show();
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
-  app.addEventListener('dom-change', () =>
-    console.log('Our app is ready to rock!'));
+  app.addEventListener('dom-change', () => console.log('Our app is ready to rock!'));
 
   // See https://github.com/Polymer/polymer/issues/1381
-  window.addEventListener('WebComponentsReady', () => {
-    // imports are loaded and elements have been registered
-  });
+  window.addEventListener('WebComponentsReady', () => { /* imports are loaded and elements have been registered */ });
 
   // Main area's paper-scroll-header-panel custom condensing transformation of
   // the appName in the middle-container and the bottom title in the bottom-container.
