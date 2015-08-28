@@ -1,0 +1,70 @@
+{
+  "name": "es6-promise-pool",
+  "version": "2.2.0",
+  "description": "Runs Promises in a pool that limits their maximum concurrency.",
+  "author": {
+    "name": "Tim De Pauw",
+    "url": "https://tmdpw.eu"
+  },
+  "main": "es6-promise-pool.js",
+  "keywords": [
+    "promise",
+    "promises",
+    "promises-a",
+    "promises-aplus",
+    "future",
+    "futures",
+    "deferred",
+    "deferreds",
+    "generator",
+    "generators",
+    "async",
+    "await",
+    "flow control",
+    "pool",
+    "queue",
+    "throttle",
+    "es6",
+    "browser",
+    "node"
+  ],
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "console-stamp": "^0.1.6",
+    "coveralls": "^2.11.4",
+    "es6-promise": "^3.0.2",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "mocha-lcov-reporter": "0.0.2",
+    "mocha-phantomjs": "^3.6.0",
+    "phantomjs": "1.9.7-15",
+    "standard": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "npm run standard && npm run mocha",
+    "standard": "node node_modules/standard/bin/cmd.js",
+    "mocha": "node --harmony node_modules/mocha/bin/_mocha",
+    "cover": "node --harmony node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec",
+    "coveralls": "node --harmony node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info && rm -rf coverage"
+  },
+  "files": [
+    "es6-promise-pool.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timdp/es6-promise-pool"
+  },
+  "bugs": {
+    "url": "https://github.com/timdp/es6-promise-pool/issues"
+  },
+  "license": "MIT",
+  "standard": {
+    "ignore": [
+      "bower_components/**"
+    ]
+  }
+}
