@@ -75,7 +75,7 @@ gulp.task('js', function () {
     .pipe($.sourcemaps.init())
     .pipe($.if('*.html', $.crisper())) // Extract JS from .html files
     .pipe($.if('*.js', $.babel()))
-    .pipe($.sourcemaps.write())
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/'))
     .pipe(gulp.dest('dist/'))
 });
@@ -189,7 +189,7 @@ gulp.task('precache', function (callback) {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 // Watch Files For Changes & Reload
-gulp.task('serve', ['styles', 'elements', 'images'], function () {
+gulp.task('serve', ['styles', 'elements', 'images', 'js'], function () {
   browserSync({
     notify: false,
     logPrefix: 'PSK',
@@ -247,8 +247,8 @@ gulp.task('serve:dist', ['default'], function () {
 gulp.task('default', ['clean'], function (cb) {
   runSequence(
     ['copy', 'styles'],
-    'elements',
-    ['jshint', 'js', 'images', 'fonts', 'html'],
+    ['elements', 'js'],
+    ['jshint', 'images', 'fonts', 'html'],
     'vulcanize',
     cb);
     // Note: add , 'precache' , after 'vulcanize', if your are going to use Service Worker
