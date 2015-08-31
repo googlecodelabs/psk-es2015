@@ -38,62 +38,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-
     class AwesomeMeme {
-      get is() { return 'awesome-meme'; }
-      get properties() {
-        return {
-          top: {
-            type: String,
-            value: ''
-          },
-          bottom: {
-            type: String,
-            value: ''
-          }
-        };
-      }
-      created() {}
-      ready() {
-        this.top = this.top.toUpperCase();
-        this.bottom = this.bottom.toUpperCase();
-      }
-      attached() {}
-      detached() {}
-      attributeChanged() {}
+     beforeRegister() {
+       this.is = 'awesome-meme';
+       this.properties = {
+         top: {
+           type: String,
+           value: ''
+         },
+         bottom: {
+           type: String,
+           value: ''
+         }
+       };
+     }
+     created() {}
+     ready() {
+       this.top = this.top.toUpperCase();
+       this.bottom = this.bottom.toUpperCase();
+     }
+     attached() {}
+     detached() {}
+     attributeChanged() {}
     }
 
-    /* Pending some Polymer changes this will/should be:
-
-     class AwesomeMeme {
-       registered() {
-         this.is = 'awesome-meme';
-         this.properties = {
-           top: {
-             type: String,
-             value: ''
-           },
-           bottom: {
-             type: String,
-             value: ''
-           }
-         };
-       }
-       created() {}
-       ready() {
-         this.top = this.top.toUpperCase();
-         this.bottom = this.bottom.toUpperCase();
-       }
-       attached() {}
-       detached() {}
-       attributeChanged() {}
-     }
-
-     Polymer(AwesomeMeme);
-
-     */
-
-    Polymer(AwesomeMeme.prototype); // jshint ignore:line
+    Polymer(AwesomeMeme);
   </script>
 
 </dom-module>

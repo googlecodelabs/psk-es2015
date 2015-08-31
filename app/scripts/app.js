@@ -15,7 +15,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   let app = document.querySelector('#app');
 
-  app.displayInstalledToast = () => document.querySelector('#caching-complete').show();
+  app.displayInstalledToast = () => {
+    // Check to make sure caching is actually enabled—it won't be in the dev environment.
+    if (!document.querySelector('platinum-sw-cache').disabled) {
+      document.querySelector('#caching-complete').show();
+    }
+  };
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
@@ -56,5 +61,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       drawerPanel.closeDrawer();
     }
   };
+
+  // Scroll page to top and expand header
+  app.scrollPageToTop = () => document.getElementById('mainContainer').scrollTop = 0;
 
 })(document);

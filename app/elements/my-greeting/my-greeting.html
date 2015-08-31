@@ -10,19 +10,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-greeting">
   <template>
+    <style include="shared-styles"></style>
     <style>
       :host {
         display: block;
       }
-
-      @media (max-width: 600px) {
-        h1.paper-font-display1 {
-          font-size: 24px;
-        }
-      }
     </style>
-
-    <h1 class="paper-font-display1"><span>{{greeting}}</span></h1>
+    <h2 class="page-title"><span>{{greeting}}</span></h2>
     <span class="paper-font-body2">Update text to change the greeting.</span>
     <!-- Listens for "input" event and sets greeting to <input>.value -->
     <input class="paper-font-body2" value="{{greeting::input}}">
@@ -30,9 +24,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     class MyGreeting {
-      get is() { return 'my-greeting'; }
-      get properties() {
-        return {
+      beforeRegister() {
+        this.is = 'my-greeting';
+        this.properties = {
           greeting: {
             type: String,
             value: 'Welcome!',
@@ -42,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
-    Polymer(MyGreeting.prototype); // jshint ignore:line
+    Polymer(MyGreeting);
   </script>
 
 </dom-module>

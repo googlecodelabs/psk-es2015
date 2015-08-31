@@ -15,7 +15,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-
     <ul>
       <template is="dom-repeat" items="{{items}}">
         <li><span class="paper-font-body1">{{item}}</span></li>
@@ -25,9 +24,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     class MyList {
-      get is() { return 'my-list'; }
-      get properties() {
-        return {
+      beforeRegister() {
+        this.is = 'my-list';
+        this.properties = {
           items: {
             type: Array,
             notify: true,
@@ -46,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
-    Polymer(MyList.prototype); // jshint ignore:line
+    Polymer(MyList);
   </script>
 
 </dom-module>
