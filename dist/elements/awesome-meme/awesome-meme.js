@@ -9,34 +9,22 @@ var AwesomeMeme = (function () {
     _classCallCheck(this, AwesomeMeme);
   }
 
-  /* Pending some Polymer changes this will/should be:
-    class AwesomeMeme {
-     registered() {
-       this.is = 'awesome-meme';
-       this.properties = {
-         top: {
-           type: String,
-           value: ''
-         },
-         bottom: {
-           type: String,
-           value: ''
-         }
-       };
-     }
-     created() {}
-     ready() {
-       this.top = this.top.toUpperCase();
-       this.bottom = this.bottom.toUpperCase();
-     }
-     attached() {}
-     detached() {}
-     attributeChanged() {}
-   }
-    Polymer(AwesomeMeme);
-    */
-
   _createClass(AwesomeMeme, [{
+    key: 'beforeRegister',
+    value: function beforeRegister() {
+      this.is = 'awesome-meme';
+      this.properties = {
+        top: {
+          type: String,
+          value: ''
+        },
+        bottom: {
+          type: String,
+          value: ''
+        }
+      };
+    }
+  }, {
     key: 'created',
     value: function created() {}
   }, {
@@ -54,28 +42,9 @@ var AwesomeMeme = (function () {
   }, {
     key: 'attributeChanged',
     value: function attributeChanged() {}
-  }, {
-    key: 'is',
-    get: function get() {
-      return 'awesome-meme';
-    }
-  }, {
-    key: 'properties',
-    get: function get() {
-      return {
-        top: {
-          type: String,
-          value: ''
-        },
-        bottom: {
-          type: String,
-          value: ''
-        }
-      };
-    }
   }]);
 
   return AwesomeMeme;
 })();
 
-Polymer(AwesomeMeme.prototype); // jshint ignore:line
+Polymer(AwesomeMeme);

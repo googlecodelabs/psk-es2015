@@ -10,14 +10,10 @@ var MyGreeting = (function () {
   }
 
   _createClass(MyGreeting, [{
-    key: 'is',
-    get: function get() {
-      return 'my-greeting';
-    }
-  }, {
-    key: 'properties',
-    get: function get() {
-      return {
+    key: 'beforeRegister',
+    value: function beforeRegister() {
+      this.is = 'my-greeting';
+      this.properties = {
         greeting: {
           type: String,
           value: 'Welcome!',
@@ -30,4 +26,4 @@ var MyGreeting = (function () {
   return MyGreeting;
 })();
 
-Polymer(MyGreeting.prototype); // jshint ignore:line
+Polymer(MyGreeting);

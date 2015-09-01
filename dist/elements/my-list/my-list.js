@@ -10,28 +10,24 @@ var MyList = (function () {
   }
 
   _createClass(MyList, [{
-    key: 'ready',
-    value: function ready() {
-      this.items = ['Responsive Web App boilerplate', 'Iron Elements and Paper Elements', 'End-to-end Build Tooling (including Vulcanize)', 'Unit testing with Web Component Tester', 'Routing with Page.js', 'Offline support with the Platinum Service Worker Elements'];
-    }
-  }, {
-    key: 'is',
-    get: function get() {
-      return 'my-list';
-    }
-  }, {
-    key: 'properties',
-    get: function get() {
-      return {
+    key: 'beforeRegister',
+    value: function beforeRegister() {
+      this.is = 'my-list';
+      this.properties = {
         items: {
           type: Array,
           notify: true
         }
       };
     }
+  }, {
+    key: 'ready',
+    value: function ready() {
+      this.items = ['Responsive Web App boilerplate', 'Iron Elements and Paper Elements', 'End-to-end Build Tooling (including Vulcanize)', 'Unit testing with Web Component Tester', 'Routing with Page.js', 'Offline support with the Platinum Service Worker Elements'];
+    }
   }]);
 
   return MyList;
 })();
 
-Polymer(MyList.prototype); // jshint ignore:line
+Polymer(MyList);

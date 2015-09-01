@@ -2,24 +2,30 @@
 
 window.addEventListener('WebComponentsReady', function () {
 
+  page.base('/psk-es2015/dist/');
+
   // We use Page.js for routing. This is a Micro
   // client-side router inspired by the Express router
   // More info: https://visionmedia.github.io/page.js/
   page('/', function () {
-    return app.route = 'home';
+    app.route = 'home';
+    app.scrollPageToTop();
   });
 
   page('/users', function () {
-    return app.route = 'users';
+    app.route = 'users';
+    app.scrollPageToTop();
   });
 
   page('/users/:name', function (data) {
     app.route = 'user-info';
     app.params = data.params;
+    app.scrollPageToTop();
   });
 
   page('/contact', function () {
-    return app.route = 'contact';
+    app.route = 'contact';
+    app.scrollPageToTop();
   });
 
   // add #! before urls
