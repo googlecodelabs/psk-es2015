@@ -7,7 +7,9 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
 
 <dom-module id="my-list">
   <template>
@@ -15,38 +17,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
+
+      span {
+        @apply(--paper-font-body1);
+      }
     </style>
+
     <ul>
       <template is="dom-repeat" items="{{items}}">
-        <li><span class="paper-font-body1">{{item}}</span></li>
+        <li><span>{{item}}</span></li>
       </template>
     </ul>
   </template>
 
   <script>
-    class MyList {
-      beforeRegister() {
-        this.is = 'my-list';
-        this.properties = {
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'my-list',
+
+        properties: {
           items: {
             type: Array,
-            notify: true,
+            notify: true
           }
-        };
-      }
-      ready() {
-        this.items = [
-          'Responsive Web App boilerplate',
-          'Iron Elements and Paper Elements',
-          'End-to-end Build Tooling (including Vulcanize)',
-          'Unit testing with Web Component Tester',
-          'Routing with Page.js',
-          'Offline support with the Platinum Service Worker Elements'
-        ];
-      }
-    }
+        },
 
-    Polymer(MyList);
+        ready: function() {
+          this.items = [
+            'Responsive Web App boilerplate',
+            'Iron Elements and Paper Elements',
+            'End-to-end Build Tooling (including Vulcanize)',
+            'Unit testing with Web Component Tester',
+            'Routing with Page.js',
+            'Offline support with the Platinum Service Worker Elements'
+          ];
+        }
+      });
+    })();
   </script>
-
 </dom-module>
